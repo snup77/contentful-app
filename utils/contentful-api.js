@@ -26,9 +26,9 @@ export async function callContentful(query, variables = {}) {
 
 const gql = String.raw
 
-export const getRecentPostList = gql`
-  query getRecentPostList {
-    blogPostCollection(limit: 3) {
+export const getPostList = gql`
+  query getPostList($limit: Int!) {
+    blogPostCollection(limit: $limit) {
       items {
         sys {
           id

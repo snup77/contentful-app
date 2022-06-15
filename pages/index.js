@@ -1,5 +1,6 @@
 import Head from "next/head"
-import { callContentful, getRecentPostList } from "../utils/contentful-api"
+import Link from 'next/link'
+import { callContentful, getPostList } from "../utils/contentful-api"
 
 export default function Home({ recentPostList }) {
   return (
@@ -18,13 +19,16 @@ export default function Home({ recentPostList }) {
           </div>
         ))
         }
+        <Link href="/articles">
+          <a>See All Articles</a>
+        </Link>
       </main>
     </div>
   )
 }
 
 export async function getStaticProps() {
-  const response = await callContentful(getRecentPostList)
+  const response = await callContentful(getPostList, { limit: 2 })
   const recentPostList = response.data.blogPostCollection.items
 
   return {
