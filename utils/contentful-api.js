@@ -42,3 +42,90 @@ export const getPostList = gql`
     }
   }
 `
+export const getSlugs = gql`
+  query getSlugs($limit: Int!) {
+    blogPostCollection(limit: $limit) {
+      items {
+        slug
+      }
+    }
+  }
+`
+
+export const getArticle = gql`
+  query getArticle($slug: String!) {
+    blogPostCollection(limit: 1, where: { slug: $slug }) {
+      total
+      items {
+        sys {
+          id
+        }
+        date
+        title
+        slug
+        excerpt
+        tags
+        externalUrl
+        author {
+          name
+          description
+          twitchUsername
+          twitterUsername
+          gitHubUsername
+          websiteUrl
+          image {
+            url
+            title
+            width
+            height
+            description
+          }
+        }
+        body {
+          json
+          links {
+            entries {
+              inline {
+                sys {
+                  id
+                }
+                __typename
+                ... on BlogPost {
+                  title
+                  slug
+                }
+              }
+              block {
+                sys {
+                  id
+                }
+                __typename
+                ... on VideoEmbed {
+                  title
+                  embedUrl
+                }
+                ... on CodeBlock {
+                  description
+                  language
+                  code
+                }
+              }
+            }
+            assets {
+              block {
+                sys {
+                  id
+                }
+                url
+                title
+                width
+                height
+                description
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
