@@ -1,10 +1,12 @@
 import { callContentful, getSlugs, getArticle } from "../../utils/contentful-api"
+import RichTextPageContent from "../../components/RichTextPageContent"
 
 export default function ArticleContent({ articleData }) {
     return (
         <div>
             <h1>{articleData.title}</h1>
-            <p>{articleData.slug}</p>
+        <p>{articleData.slug}</p>
+        <RichTextPageContent richTextBodyField={articleData.body} renderH2Links={true} />
         </div>
     )
 }
