@@ -17,9 +17,9 @@ function slugifyString(string) {
     .toLowerCase();
 }
 
-// const DynamicCodeBlock = dynamic(() => import("./CodeBlock"));
+const DynamicCodeBlock = dynamic(() => import("./CodeBlock"));
 
-// const DynamicVideoEmbed = dynamic(() => import("./VideoEmbed"));
+const DynamicVideoEmbed = dynamic(() => import("./VideoEmbed"));
 
 export function getRichTextRenderOptions(links, options) {
   const { renderH2Links, renderNativeImg } = options;
@@ -147,22 +147,22 @@ export function getRichTextRenderOptions(links, options) {
             return null;
         }
       },
-      // [BLOCKS.EMBEDDED_ENTRY]: (node, children) => {
-      //   const entry = entryMap.get(node.data.target.sys.id);
-      //   const { __typename } = entry;
+      [BLOCKS.EMBEDDED_ENTRY]: (node, children) => {
+        const entry = entryMap.get(node.data.target.sys.id);
+        const { __typename } = entry;
 
-      //   switch (__typename) {
-      //     case "VideoEmbed":
-      //       const { embedUrl, title } = entry;
-      //       return <DynamicVideoEmbed embedUrl={embedUrl} title={title} />;
-      //     case "CodeBlock":
-      //       const { language, code } = entry;
+        switch (__typename) {
+          case "VideoEmbed":
+            const { embedUrl, title } = entry;
+            return <DynamicVideoEmbed embedUrl={embedUrl} title={title} />;
+          case "CodeBlock":
+            const { language, code } = entry;
 
-      //       return <DynamicCodeBlock language={language} code={code} />;
-      //     default:
-      //       return null;
-      //   }
-      // },
+            return <DynamicCodeBlock language={language} code={code} />;
+          default:
+            return null;
+        }
+      },
       [BLOCKS.EMBEDDED_ASSET]: (node, next) => {
         const { title, url, height, width, description } = assetBlockMap.get(
           node.data.target.sys.id,
