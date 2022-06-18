@@ -7,7 +7,7 @@ export default function VideoEmbed(props) {
     <div className={VideoEmbedStyles.videoEmbed}>
       <iframe
         className={VideoEmbedStyles.videoEmbed__iframe}
-        src={embedUrl}
+        src={embedUrl + "?origin=https://contentful-app-eight.vercel.app/"}
         height="100%"
         width="100%"
         frameBorder="0"
