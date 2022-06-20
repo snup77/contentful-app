@@ -47,8 +47,6 @@ export async function getStaticProps() {
 
   })
 
-  console.log(recentPostList)
-
   return {
     props: {
       recentPostList,

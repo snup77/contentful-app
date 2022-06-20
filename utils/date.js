@@ -4,18 +4,18 @@
 
 function getMonthStringFromInt(int) {
     const months = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
+      "January",
+      "February",
+      "March",
+      "April",
       "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
     ];
   
     return months[int];
@@ -49,7 +49,7 @@ function getMonthStringFromInt(int) {
   export function formatPublishedDateForDisplay(dateString) {
     const timestamp = Date.parse(dateString);
     const date = new Date(timestamp);
-    return `${date.getDate()} ${getMonthStringFromInt(
+    return `${getMonthStringFromInt(
       date.getMonth(),
-    )} ${date.getFullYear()}`;
+    )} ${date.getDate()}, ${date.getFullYear()}`;
   }
