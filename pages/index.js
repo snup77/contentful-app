@@ -1,10 +1,7 @@
 import Head from "next/head"
 import Link from "next/link"
 import { callContentful, getPostList } from "../utils/contentful-api"
-import {
-  formatPublishedDateForDisplay,
-  formatPublishedDateForDateTime,
-} from "../utils/date"
+import PublishedDate from "../components/PublishedDate"
 
 export default function Home({ recentPostList }) {
   return (
@@ -24,9 +21,7 @@ export default function Home({ recentPostList }) {
               </a>
             </Link>
             <p>{post.excerpt}</p>
-            <time dateTime={formatPublishedDateForDateTime(post.date)}>
-              {formatPublishedDateForDisplay(post.date)}
-            </time>
+            <PublishedDate date={post.date} />
           </div>
         ))}
         <Link href="/articles">
