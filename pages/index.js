@@ -2,6 +2,10 @@ import Head from "next/head"
 import Link from "next/link"
 import { callContentful, getPostList } from "../utils/contentful-api"
 import PublishedDate from "../components/PublishedDate"
+import {
+  formatPublishedDateForDisplay,
+  formatPublishedDateForDateTime,
+} from "../utils/date"
 
 export default function Home({ recentPostList }) {
   return (
@@ -21,7 +25,7 @@ export default function Home({ recentPostList }) {
               </a>
             </Link>
             <p>{post.excerpt}</p>
-            <PublishedDate date={post.date} />
+            <PublishedDate date={post.date} datetime={post.datetime} />
           </div>
         ))}
         <Link href="/articles">
@@ -35,6 +39,15 @@ export default function Home({ recentPostList }) {
 export async function getStaticProps() {
   const response = await callContentful(getPostList, { limit: 2 })
   const recentPostList = response.data.blogPostCollection.items
+
+  recentPostList.map((post, index) => {
+    
+    recentPostList[index].date = formatPublishedDateForDisplay(post.date)
+    recentPostList[index].datetime = formatPublishedDateForDateTime(post.date)
+
+  })
+
+  console.log(recentPostList)
 
   return {
     props: {

@@ -4,13 +4,14 @@ import {
 } from "../../utils/date"
   
 export default function PublishedDate(props) {
-    const { date } = props;
+  const { date } = props;
+  const { datetime } = props
 
     return (
       <time
-        dateTime={formatPublishedDateForDateTime(date)}
+        dateTime={datetime}
       >
-        {formatPublishedDateForDisplay(date)}
+        {date}
       </time>
     );
 }
