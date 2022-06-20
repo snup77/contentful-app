@@ -24,11 +24,9 @@ export default function Home({ recentPostList }) {
               </a>
             </Link>
             <p>{post.excerpt}</p>
-            <p>
-              <time dateTime={formatPublishedDateForDateTime(post.date)}>
-                {formatPublishedDateForDisplay(post.date)}
-              </time>
-            </p>
+            <time dateTime={formatPublishedDateForDateTime(post.date)}>
+              {formatPublishedDateForDisplay(post.date)}
+            </time>
           </div>
         ))}
         <Link href="/articles">
