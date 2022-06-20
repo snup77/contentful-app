@@ -31,10 +31,8 @@ export async function getStaticProps() {
   const postList = response.data.blogPostCollection.items
 
   postList.map((post, index) => {
-    
     postList[index].date = formatPublishedDateForDisplay(post.date)
     postList[index].datetime = formatPublishedDateForDateTime(post.date)
-
   })
 
   return {
