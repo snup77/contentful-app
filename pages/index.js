@@ -29,7 +29,7 @@ export default function Home({ recentPostList }) {
           </div>
         ))}
         <Link href="/articles">
-          <a>See All Articles</a>
+          <a>View All Articles</a>
         </Link>
       </main>
     </div>
