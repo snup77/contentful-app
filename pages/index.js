@@ -15,7 +15,7 @@ export default function Home({ recentPostList }) {
       <main>
         {recentPostList.map((post) => (
           <div key={post.sys.id}>
-            <Link href={`articles/${post.slug}`}>
+            <Link href={`/articles/${post.slug}`}>
               <a>
                 <h1>{post.title}</h1>
               </a>

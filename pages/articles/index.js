@@ -8,7 +8,7 @@ export default function ArticleList({ postList }) {
       <main>
         {postList.map((post) => (
           <div key={post.sys.id}>
-            <Link href={`articles/${post.slug}`}>
+            <Link href={`/articles/${post.slug}`}>
               <a>
                 <h1>{post.title}</h1>
               </a>
