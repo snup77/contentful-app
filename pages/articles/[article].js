@@ -4,13 +4,12 @@ import {
   getArticle,
 } from "../../utils/contentful-api"
 import RichTextPageContent from "../../components/RichTextPageContent"
-import { formatPublishedDateForDisplay } from "../../utils/date"
 
 export default function ArticleContent({ articleData }) {
   return (
     <div>
       <h1>{articleData.title}</h1>
-      <p>{formatPublishedDateForDisplay(articleData.date)}</p>
+      <p>{articleData.date}</p>
       <RichTextPageContent
         richTextBodyField={articleData.body}
         renderH2Links={true}
