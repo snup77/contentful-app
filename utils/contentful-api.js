@@ -28,7 +28,7 @@ const gql = String.raw
 
 export const getPostList = gql`
   query getPostList($limit: Int!) {
-    blogPostCollection(limit: $limit) {
+    blogPostCollection(limit: $limit, order: date_DESC) {
       items {
         sys {
           id
