@@ -1,3 +1,4 @@
+import Image from "next/image"
 import {
   callContentful,
   getSlugs,
@@ -15,6 +16,12 @@ export default function ArticleContent({ articleData }) {
     <div>
       <h1>{articleData.title}</h1>
       <PublishedDate date={articleData.date} datetime={articleData.datetime} />
+      <Image
+        src={articleData.heroImage.url}
+        alt={articleData.heroImage.description}
+        width={500}
+        height={500}
+      />
       <RichTextPageContent
         richTextBodyField={articleData.body}
         renderH2Links={true}

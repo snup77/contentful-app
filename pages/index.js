@@ -1,5 +1,6 @@
 import Head from "next/head"
 import Link from "next/link"
+import Image from "next/image"
 import { callContentful, getPostList } from "../utils/contentful-api"
 import PublishedDate from "../components/PublishedDate"
 import {
@@ -19,6 +20,12 @@ export default function Home({ recentPostList }) {
       <main>
         {recentPostList.map((post) => (
           <div key={post.sys.id}>
+            <Image
+              src={post.heroImage.url}
+              alt={post.heroImage.description}
+              width={500}
+              height={500}
+            />
             <Link href={`/articles/${post.slug}`}>
               <a>
                 <h1>{post.title}</h1>

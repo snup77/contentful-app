@@ -172,6 +172,7 @@ export function getRichTextRenderOptions(links, options) {
           return (
             <div className={RichTextPageContentStyles.page__imgContainer}>
               <img src={url} alt={description} height={height} width={width} />
+              <figcaption>{description}</figcaption>
             </div>
           );
         } else {
@@ -184,6 +185,7 @@ export function getRichTextRenderOptions(links, options) {
                 width={width}
                 layout="responsive"
               />
+              <figcaption>{description}</figcaption>
             </div>
           );
         }

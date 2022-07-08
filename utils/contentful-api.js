@@ -36,6 +36,10 @@ export const getPostList = gql`
         date
         title
         slug
+        heroImage {
+          url
+          description
+        }
         excerpt
         tags
       }
@@ -63,6 +67,10 @@ export const getArticle = gql`
         date
         title
         slug
+        heroImage {
+          url
+          description
+        }
         excerpt
         tags
         externalUrl
