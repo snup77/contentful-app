@@ -24,7 +24,7 @@ export default function ArticleContent({ articleData }) {
       />
       <RichTextPageContent
         richTextBodyField={articleData.body}
-        renderH2Links={true}
+        renderH2Links={false}
       />
     </div>
   )

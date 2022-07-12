@@ -6,6 +6,7 @@ import {
   formatPublishedDateForDateTime,
 } from "../../utils/date"
 import PublishedDate from "../../components/PublishedDate"
+import SignupForm from "../../components/SignupForm"
 
 export default function ArticleList({ postList }) {
   return (
@@ -29,6 +30,7 @@ export default function ArticleList({ postList }) {
           </div>
         ))}
       </main>
+      <SignupForm />
     </div>
   )
 }
