@@ -64,7 +64,7 @@ export default function SignupForm() {
         <p>{errorMsg}</p>
       )}
       {state === "Success" && (
-        <p>Awesome, you've been subscribed!</p>
+        <p>Awesome, you have been subscribed!</p>
       )}
     </form>
   )
