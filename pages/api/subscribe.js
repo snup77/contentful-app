@@ -2,8 +2,6 @@ const API_KEY = process.env.NEXT_PUBLIC_MAILCHIMP_API_KEY
 const API_SERVER = process.env.NEXT_PUBLIC_MAILCHIMP_API_SERVER
 const AUDIENCE_ID = process.env.NEXT_PUBLIC_MAILCHIMP_AUDIENCE_ID
 
-const base64ApiKey = Buffer.from(`anystring:${API_KEY}`).toString("base64")
-
 export default async (req, res) => {
   const { email } = req.body
 
@@ -16,7 +14,7 @@ export default async (req, res) => {
   const fetchOptions = {
     method: "POST",
     headers: {
-      Authorization: `apiKey ${base64ApiKey}`,
+      Authorization: `Bearer ${API_KEY}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
@@ -27,7 +25,6 @@ export default async (req, res) => {
 
   try {
     const response = await fetch(fetchUrl, fetchOptions)
-    console.log(response)
 
     if (response.status >= 400) {
       return res.status(400).json({

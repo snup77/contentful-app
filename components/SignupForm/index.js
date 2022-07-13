@@ -13,6 +13,7 @@ export default function SignupForm() {
     const fetchUrl = "/api/subscribe"
 
     const fetchOptions = {
+      endpoint: fetchUrl,
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -23,19 +24,17 @@ export default function SignupForm() {
     }
 
     try {
-      const response = await fetch(fetchUrl, fetchOptions).then((response) =>
-        response.json()
-      )
-      console.log(response)
-      setState('Success')
-      setEmail('')
+      const response = await fetch(fetchUrl, fetchOptions)
+
+      if (!response.ok) {
+        throw new Error()
+      }
+      setState("Success")
+      setEmail("")
     } catch (e) {
-      console.log(e.response.data.error)
-      setErrorMsg(e.response.data.error)
-      setState('Error')
+      setErrorMsg("There was an error subscribing to the newsletter.")
+      setState("Error")
     }
-
-
   }
 
   return (
@@ -60,12 +59,8 @@ export default function SignupForm() {
           Subscribe
         </button>
       </div>
-      {state === "Error" && (
-        <p>{errorMsg}</p>
-      )}
-      {state === "Success" && (
-        <p>Awesome, you have been subscribed!</p>
-      )}
+      {state === "Error" && <p>{errorMsg}</p>}
+      {state === "Success" && <p>Awesome, you have been subscribed!</p>}
     </form>
   )
 }
