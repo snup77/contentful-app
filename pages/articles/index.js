@@ -22,7 +22,7 @@ export default function ArticleList({ postList }) {
             />
             <Link href={`/articles/${post.slug}`}>
               <a>
-                <h1>{post.title}</h1>
+                <h1 className="text-4xl">{post.title}</h1>
               </a>
             </Link>
             <p>{post.excerpt}</p>

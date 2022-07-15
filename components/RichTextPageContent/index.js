@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import RichTextPageContentStyles from "../../styles/RichTextPageContent.module.css"
-import TypographyStyles from "../../styles/Typography.module.css";
 import LinkIcon from "./svg/LinkIcon";
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
@@ -46,21 +44,18 @@ export function getRichTextRenderOptions(links, options) {
   return {
     renderMark: {
       [MARKS.BOLD]: (text) => (
-        <b
-          className={`${TypographyStyles.bodyCopy} ${TypographyStyles.bodyCopy__bold}`}
-        >
+        <b>
           {text}
         </b>
       ),
       [MARKS.CODE]: (text) => (
-        <code className={TypographyStyles.inlineCode}>{text}</code>
+        <code>{text}</code>
       ),
     },
 
     renderNode: {
       [INLINES.HYPERLINK]: (node, children) => (
         <a
-          className={TypographyStyles.inlineLink}
           href={node.data.uri}
           target="_blank"
           rel="nofollow noreferrer"
@@ -69,25 +64,21 @@ export function getRichTextRenderOptions(links, options) {
         </a>
       ),
       [BLOCKS.HR]: (text) => (
-        <hr className={RichTextPageContentStyles.page__hr} />
+        <hr />
       ),
       [BLOCKS.HEADING_1]: (node, children) => (
-        <h1 className={TypographyStyles.heading__h1}>{children}</h1>
+        <h1 className="text-4xl">{children}</h1>
       ),
       [BLOCKS.HEADING_2]: (node, children) => {
         if (renderH2Links) {
           return (
-            <div
-              className={RichTextPageContentStyles.page__linkedHeaderContainer}
-            >
+            <div>
               <h2
                 id={`${slugifyString(children[0])}`}
-                className={TypographyStyles.heading__h2}
               >
                 {children}
               </h2>
               <a
-                className={`${RichTextPageContentStyles.page__headerLink} ${TypographyStyles.inlineLink}`}
                 href={`#${slugifyString(children[0])}`}
                 aria-label={children}
               >
@@ -96,39 +87,37 @@ export function getRichTextRenderOptions(links, options) {
             </div>
           );
         } else {
-          return <h2 className={TypographyStyles.heading__h2}>{children}</h2>;
+          return <h2>{children}</h2>;
         }
       },
       [BLOCKS.HEADING_3]: (node, children) => (
-        <h3 className={TypographyStyles.heading__h3}>{children}</h3>
+        <h3>{children}</h3>
       ),
       [BLOCKS.HEADING_4]: (node, children) => (
-        <h4 className={TypographyStyles.heading__h4}>{children}</h4>
+        <h4>{children}</h4>
       ),
       [BLOCKS.HEADING_5]: (node, children) => (
-        <h5 className={TypographyStyles.heading__h5}>{children}</h5>
+        <h5>{children}</h5>
       ),
       [BLOCKS.HEADING_6]: (node, children) => (
-        <h6 className={TypographyStyles.heading__h6}>{children}</h6>
+        <h6>{children}</h6>
       ),
       [BLOCKS.PARAGRAPH]: (node, children) => (
-        <p className={TypographyStyles.bodyCopy}>{children}</p>
+        <p className="text-lg">{children}</p>
       ),
       [BLOCKS.QUOTE]: (node, children) => (
-        <blockquote className={TypographyStyles.blockquote}>
+        <blockquote>
           {children}
         </blockquote>
       ),
       [BLOCKS.UL_LIST]: (node, children) => (
-        <ul className={RichTextPageContentStyles.page__ul}>{children}</ul>
+        <ul>{children}</ul>
       ),
       [BLOCKS.OL_LIST]: (node, children) => (
-        <ol className={RichTextPageContentStyles.page__ol}>{children}</ol>
+        <ol>{children}</ol>
       ),
       [BLOCKS.LIST_ITEM]: (node, children) => (
-        <li
-          className={`${TypographyStyles.bodyCopy} ${RichTextPageContentStyles.page__li}`}
-        >
+        <li>
           {children}
         </li>
       ),
@@ -140,7 +129,7 @@ export function getRichTextRenderOptions(links, options) {
           case "BlogPost":
             return (
               <Link href={`/blog/${entry.slug}`}>
-                <a className={TypographyStyles.inlineLink}>{entry.title}</a>
+                <a>{entry.title}</a>
               </Link>
             );
           default:
@@ -170,14 +159,14 @@ export function getRichTextRenderOptions(links, options) {
 
         if (renderNativeImg) {
           return (
-            <div className={RichTextPageContentStyles.page__imgContainer}>
+            <div>
               <img src={url} alt={description} height={height} width={width} />
               <figcaption>{description}</figcaption>
             </div>
           );
         } else {
           return (
-            <div className={RichTextPageContentStyles.page__imgContainer}>
+            <div>
               <Image
                 src={url}
                 alt={description}
@@ -198,7 +187,7 @@ export default function RichTextPageContent(props) {
   const { richTextBodyField, renderH2Links } = props;
 
   return (
-    <div className={RichTextPageContentStyles.page__content}>
+    <div>
       {documentToReactComponents(
         richTextBodyField.json,
         getRichTextRenderOptions(richTextBodyField.links, { renderH2Links }),
