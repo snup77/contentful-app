@@ -5,7 +5,14 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'roboto': ['Roboto', 'Helvetica', 'Arial'],
+        'roboto-italic': ['Roboto Italic', 'Helvetica', 'Arial'],
+        'roboto-bold': ['Roboto Bold', 'Helvetica', 'Arial'],
+        'nunito': ['Nunito Black', 'Helvetica', 'Arial'],
+      }
+    },
   },
   plugins: [],
 }
