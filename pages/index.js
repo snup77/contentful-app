@@ -28,10 +28,10 @@ export default function Home({ recentPostList }) {
             />
             <Link href={`/articles/${post.slug}`}>
               <a>
-                <h1 className="font-nunito">{post.title}</h1>
+                <h1>{post.title}</h1>
               </a>
             </Link>
-            <p className="font-roboto">{post.excerpt}</p>
+            <p>{post.excerpt}</p>
             <PublishedDate date={post.date} datetime={post.datetime} />
           </div>
         ))}
