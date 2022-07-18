@@ -72,7 +72,7 @@ export function getRichTextRenderOptions(links, options) {
       [BLOCKS.HEADING_2]: (node, children) => {
         if (renderH2Links) {
           return (
-            <div>
+            <div className="mb-4">
               <h2
                 id={`${slugifyString(children[0])}`}
               >
@@ -87,7 +87,7 @@ export function getRichTextRenderOptions(links, options) {
             </div>
           );
         } else {
-          return <h2>{children}</h2>;
+          return <h2 className="mb-4">{children}</h2>;
         }
       },
       [BLOCKS.HEADING_3]: (node, children) => (
@@ -103,7 +103,7 @@ export function getRichTextRenderOptions(links, options) {
         <h6>{children}</h6>
       ),
       [BLOCKS.PARAGRAPH]: (node, children) => (
-        <p className="text-lg">{children}</p>
+        <p className="mb-4">{children}</p>
       ),
       [BLOCKS.QUOTE]: (node, children) => (
         <blockquote>
@@ -159,14 +159,14 @@ export function getRichTextRenderOptions(links, options) {
 
         if (renderNativeImg) {
           return (
-            <div>
+            <figure className="my-6">
               <img src={url} alt={description} height={height} width={width} />
-              <figcaption>{description}</figcaption>
-            </div>
+              <figcaption className="mt-3 text-zinc-500">{description}</figcaption>
+            </figure>
           );
         } else {
           return (
-            <div>
+            <figure className="my-6">
               <Image
                 src={url}
                 alt={description}
@@ -174,8 +174,8 @@ export function getRichTextRenderOptions(links, options) {
                 width={width}
                 layout="responsive"
               />
-              <figcaption>{description}</figcaption>
-            </div>
+              <figcaption className="mt-3 text-zinc-500">{description}</figcaption>
+            </figure>
           );
         }
       },

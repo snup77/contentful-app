@@ -14,20 +14,28 @@ import PublishedDate from "../../components/PublishedDate"
 export default function ArticleContent({ articleData }) {
   return (
     <div>
-      <h1 className="py-6 text-center">{articleData.title}</h1>
-      <PublishedDate date={articleData.date} datetime={articleData.datetime} />
+      <div className="px-6">
+        <h1 className="my-6 text-center">{articleData.title}</h1>
+        <PublishedDate
+          date={articleData.date}
+          datetime={articleData.datetime}
+        />
+      </div>
+      <div className="mb-6">
         <Image
           src={articleData.heroImage.url}
           alt={articleData.heroImage.description}
           layout="responsive"
-          width={1052}
-          height={591.75}
-          objectFit="cover"
+          width={articleData.heroImage.width}
+          height={articleData.heroImage.height}
         />
-      <RichTextPageContent
-        richTextBodyField={articleData.body}
-        renderH2Links={false}
-      />
+      </div>
+      <div className="px-6">
+        <RichTextPageContent
+          richTextBodyField={articleData.body}
+          renderH2Links={false}
+        />
+      </div>
     </div>
   )
 }

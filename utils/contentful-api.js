@@ -70,6 +70,8 @@ export const getArticle = gql`
         heroImage {
           url
           description
+          width
+          height
         }
         excerpt
         tags
