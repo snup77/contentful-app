@@ -2,7 +2,7 @@ export default function VideoEmbed(props) {
   const { embedUrl, title } = props;
 
   return (
-    <div>
+    <div className="relative pb-[56.25%] mb-8">
       <iframe
         src={embedUrl}
         height="100%"
@@ -11,6 +11,7 @@ export default function VideoEmbed(props) {
         scrolling="no"
         title={title}
         allowFullScreen={true}
+        className="absolute top-0 left-0"
       />
     </div>
   );

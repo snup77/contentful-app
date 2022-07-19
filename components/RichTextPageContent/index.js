@@ -72,7 +72,7 @@ export function getRichTextRenderOptions(links, options) {
       [BLOCKS.HEADING_2]: (node, children) => {
         if (renderH2Links) {
           return (
-            <div className="mb-4">
+            <div className="mt-8 mb-4">
               <h2
                 id={`${slugifyString(children[0])}`}
               >
@@ -87,7 +87,7 @@ export function getRichTextRenderOptions(links, options) {
             </div>
           );
         } else {
-          return <h2 className="mb-4">{children}</h2>;
+          return <h2 className="mt-8 mb-4">{children}</h2>;
         }
       },
       [BLOCKS.HEADING_3]: (node, children) => (
@@ -111,13 +111,13 @@ export function getRichTextRenderOptions(links, options) {
         </blockquote>
       ),
       [BLOCKS.UL_LIST]: (node, children) => (
-        <ul>{children}</ul>
+        <ul className="list-disc my-6 mx-0 pl-8">{children}</ul>
       ),
       [BLOCKS.OL_LIST]: (node, children) => (
-        <ol>{children}</ol>
+        <ol className=" list-decimal my-6 mx-0 pl-8">{children}</ol>
       ),
       [BLOCKS.LIST_ITEM]: (node, children) => (
-        <li>
+        <li className="mb-2">
           {children}
         </li>
       ),

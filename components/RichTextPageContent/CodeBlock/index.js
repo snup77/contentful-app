@@ -1,4 +1,3 @@
-import CodeBlockStyles from "./CodeBlock.module.css";
 import Prism from "prismjs";
 import { useEffect } from "react";
 
@@ -10,8 +9,8 @@ export default function CodeBlock(props) {
   const { language, code } = props;
 
   return (
-    <pre className={`${CodeBlockStyles.codeBlock} language-${language}`}>
-      <code className={CodeBlockStyles.codeBlock__inner}>{code}</code>
+    <pre className={`my-8 mx-0 language-${language}`}>
+      <code className="overflow-x-auto whitespace-pre-wrap">{code}</code>
     </pre>
   );
 }
