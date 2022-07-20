@@ -83,7 +83,13 @@
   h2 {
     @apply font-nunito text-2xl;
   }
+  h3 {
+    @apply font-nunito text-lg;
+  }
+  h4 {
+    @apply font-nunito text-base;
+  }
   p {
-    @apply font-roboto text-base;
+    @apply font-roboto text-lg;
   }
 }

@@ -44,9 +44,9 @@ export function getRichTextRenderOptions(links, options) {
   return {
     renderMark: {
       [MARKS.BOLD]: (text) => (
-        <b>
+        <strong>
           {text}
-        </b>
+        </strong>
       ),
       [MARKS.CODE]: (text) => (
         <code>{text}</code>
@@ -91,10 +91,10 @@ export function getRichTextRenderOptions(links, options) {
         }
       },
       [BLOCKS.HEADING_3]: (node, children) => (
-        <h3>{children}</h3>
+        <h3 className="mt-8 mb-4">{children}</h3>
       ),
       [BLOCKS.HEADING_4]: (node, children) => (
-        <h4>{children}</h4>
+        <h4 className="mt-8 mb-4">{children}</h4>
       ),
       [BLOCKS.HEADING_5]: (node, children) => (
         <h5>{children}</h5>
@@ -174,7 +174,7 @@ export function getRichTextRenderOptions(links, options) {
                 width={width}
                 layout="responsive"
               />
-              <figcaption className="mt-3 text-zinc-500">{description}</figcaption>
+              <figcaption className="text-base text-center mt-3 text-zinc-500">{description}</figcaption>
             </figure>
           );
         }
