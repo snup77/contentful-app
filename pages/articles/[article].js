@@ -14,14 +14,14 @@ import PublishedDate from "../../components/PublishedDate"
 export default function ArticleContent({ articleData }) {
   return (
     <div>
-      <div className="px-6">
+      <div className="px-6 max-w-[670px] m-auto">
         <h1 className="my-6 text-center">{articleData.title}</h1>
         <PublishedDate
           date={articleData.date}
           datetime={articleData.datetime}
         />
       </div>
-      <div className="mb-6">
+      <div className="mb-6 max-w-[1052px] m-auto">
         <Image
           src={articleData.heroImage.url}
           alt={articleData.heroImage.description}
@@ -30,7 +30,7 @@ export default function ArticleContent({ articleData }) {
           height={articleData.heroImage.height}
         />
       </div>
-      <div className="px-6">
+      <div className="px-6 max-w-[670px] m-auto">
         <RichTextPageContent
           richTextBodyField={articleData.body}
           renderH2Links={false}

@@ -78,7 +78,7 @@
 
 @layer base {
   h1 {
-    @apply font-nunito text-3xl;
+    @apply font-nunito text-3xl lg:text-4xl lg:leading-10;
   }
   h2 {
     @apply font-nunito text-2xl;
@@ -90,6 +90,6 @@
     @apply font-nunito text-base;
   }
   p {
-    @apply font-roboto text-lg;
+    @apply font-roboto text-lg leading-7 lg:text-xl lg:leading-8;
   }
 }
