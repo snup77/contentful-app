@@ -39,6 +39,8 @@ export const getPostList = gql`
         heroImage {
           url
           description
+          width
+          height
         }
         excerpt
         tags

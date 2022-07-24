@@ -23,8 +23,9 @@ export default function Home({ recentPostList }) {
             <Image
               src={post.heroImage.url}
               alt={post.heroImage.description}
-              width={500}
-              height={500}
+              width={post.heroImage.width}
+              height={post.heroImage.height}
+              layout="responsive"
             />
             <Link href={`/articles/${post.slug}`}>
               <a>
@@ -32,7 +33,11 @@ export default function Home({ recentPostList }) {
               </a>
             </Link>
             <p>{post.excerpt}</p>
-            <PublishedDate date={post.date} datetime={post.datetime} />
+            <PublishedDate
+              date={post.date}
+              datetime={post.datetime}
+              textAlign="text-left"
+            />
           </div>
         ))}
         <Link href="/articles">
@@ -44,7 +49,7 @@ export default function Home({ recentPostList }) {
 }
 
 export async function getStaticProps() {
-  const response = await callContentful(getPostList, { limit: 2 })
+  const response = await callContentful(getPostList, { limit: 7 })
   const recentPostList = response.data.blogPostCollection.items
 
   recentPostList.map((post, index) => {
