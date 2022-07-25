@@ -81,7 +81,7 @@
     @apply font-nunito text-3xl lg:text-4xl lg:leading-10;
   }
   h2 {
-    @apply font-nunito text-2xl;
+    @apply font-nunito text-2xl leading-7;
   }
   h3 {
     @apply font-nunito text-lg;
@@ -90,6 +90,6 @@
     @apply font-nunito text-base;
   }
   p {
-    @apply font-roboto text-lg leading-7 lg:text-xl lg:leading-8;
+    @apply font-roboto text-gray-800;
   }
 }

@@ -19,25 +19,25 @@ export default function Home({ recentPostList }) {
 
       <main>
         {recentPostList.map((post) => (
-          <div key={post.sys.id}>
-            <Image
-              src={post.heroImage.url}
-              alt={post.heroImage.description}
-              width={post.heroImage.width}
-              height={post.heroImage.height}
-              layout="responsive"
-            />
+          <div className="px-6 my-6" key={post.sys.id}>
             <Link href={`/articles/${post.slug}`}>
               <a>
-                <h1>{post.title}</h1>
+                <Image
+                  src={post.heroImage.url}
+                  alt={post.heroImage.description}
+                  width={post.heroImage.width}
+                  height={post.heroImage.height}
+                  layout="responsive"
+                />
+                <PublishedDate
+                  date={post.date}
+                  datetime={post.datetime}
+                  styles=" text-sm text-left mb-1 mt-4"
+                />
+                <h2 className="mb-2">{post.title}</h2>
+                <p className="text-base">{post.excerpt}</p>
               </a>
             </Link>
-            <p>{post.excerpt}</p>
-            <PublishedDate
-              date={post.date}
-              datetime={post.datetime}
-              textAlign="text-left"
-            />
           </div>
         ))}
         <Link href="/articles">

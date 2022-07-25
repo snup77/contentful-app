@@ -30,7 +30,7 @@ export default function ArticleList({ postList }) {
             <PublishedDate
               date={post.date}
               datetime={post.datetime}
-              textAlign="text-left"
+              styles="text-left pb-6"
             />
           </div>
         ))}

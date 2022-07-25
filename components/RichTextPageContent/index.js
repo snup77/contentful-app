@@ -103,7 +103,7 @@ export function getRichTextRenderOptions(links, options) {
         <h6>{children}</h6>
       ),
       [BLOCKS.PARAGRAPH]: (node, children) => (
-        <p className="mb-4">{children}</p>
+        <p className="mb-4 text-lg leading-7 lg:text-xl lg:leading-8">{children}</p>
       ),
       [BLOCKS.QUOTE]: (node, children) => (
         <blockquote>

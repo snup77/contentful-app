@@ -19,7 +19,7 @@ export default function ArticleContent({ articleData }) {
         <PublishedDate
           date={articleData.date}
           datetime={articleData.datetime}
-          textAlign="text-center"
+          styles="text-base text-center pb-6"
         />
       </div>
       <div className="mb-6 max-w-[1052px] m-auto">
