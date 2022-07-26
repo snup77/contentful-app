@@ -17,29 +17,34 @@ export default function Home({ recentPostList }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        {recentPostList.map((post) => (
-          <div className="px-6 my-6" key={post.sys.id}>
-            <Link href={`/articles/${post.slug}`}>
-              <a>
-                <Image
-                  src={post.heroImage.url}
-                  alt={post.heroImage.description}
-                  width={post.heroImage.width}
-                  height={post.heroImage.height}
-                  layout="responsive"
-                />
-                <PublishedDate
-                  date={post.date}
-                  datetime={post.datetime}
-                  styles=" text-sm text-left mb-1 mt-4"
-                />
-                <h2 className="mb-2">{post.title}</h2>
-                <p className="text-base">{post.excerpt}</p>
-              </a>
-            </Link>
-          </div>
-        ))}
+      <main className="max-w-5xl m-auto">
+        <div className="flex flex-1 flex-wrap flex-row">
+          {recentPostList.map((post, index) => {
+            const widthStyle = index != 0 ? "md:w-1/2" : ""
+            return (
+              <div className={`w-full px-6 my-6 ${widthStyle}`} key={post.sys.id}>
+                <Link href={`/articles/${post.slug}`}>
+                  <a>
+                    <Image
+                      src={post.heroImage.url}
+                      alt={post.heroImage.description}
+                      width={post.heroImage.width}
+                      height={post.heroImage.height}
+                      layout="responsive"
+                    />
+                    <PublishedDate
+                      date={post.date}
+                      datetime={post.datetime}
+                      styles=" text-sm text-left mb-1 mt-4"
+                    />
+                    <h2 className="mb-2">{post.title}</h2>
+                    <p className="text-base">{post.excerpt}</p>
+                  </a>
+                </Link>
+              </div>
+            )
+          })}
+        </div>
         <Link href="/articles">
           <a>View All Articles</a>
         </Link>
