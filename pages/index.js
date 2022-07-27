@@ -1,8 +1,7 @@
 import Head from "next/head"
 import Link from "next/link"
-import Image from "next/image"
 import { callContentful, getPostList } from "../utils/contentful-api"
-import PublishedDate from "../components/PublishedDate"
+import ArticleList from "../components/ArticleList"
 import {
   formatPublishedDateForDisplay,
   formatPublishedDateForDateTime,
@@ -17,34 +16,8 @@ export default function Home({ recentPostList }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="max-w-5xl m-auto">
-        <div className="flex flex-1 flex-wrap flex-row">
-          {recentPostList.map((post, index) => {
-            const widthStyle = index != 0 ? "md:w-1/2" : ""
-            return (
-              <div className={`w-full px-6 my-6 ${widthStyle}`} key={post.sys.id}>
-                <Link href={`/articles/${post.slug}`}>
-                  <a>
-                    <Image
-                      src={post.heroImage.url}
-                      alt={post.heroImage.description}
-                      width={post.heroImage.width}
-                      height={post.heroImage.height}
-                      layout="responsive"
-                    />
-                    <PublishedDate
-                      date={post.date}
-                      datetime={post.datetime}
-                      styles=" text-sm text-left mb-1 mt-4"
-                    />
-                    <h2 className="mb-2">{post.title}</h2>
-                    <p className="text-base">{post.excerpt}</p>
-                  </a>
-                </Link>
-              </div>
-            )
-          })}
-        </div>
+      <main>
+        <ArticleList articles={recentPostList}/>
         <Link href="/articles">
           <a>View All Articles</a>
         </Link>
