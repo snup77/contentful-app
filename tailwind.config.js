@@ -10,7 +10,8 @@ module.exports = {
         'roboto': ['Roboto', 'Helvetica', 'Arial'],
         'roboto-italic': ['Roboto Italic', 'Helvetica', 'Arial'],
         'roboto-bold': ['Roboto Bold', 'Helvetica', 'Arial'],
-        'nunito': ['Nunito Black', 'Helvetica', 'Arial'],
+        'nunito-black': ['Nunito Black', 'Helvetica', 'Arial'],
+        'nunito-bold': ['Nunito bold', 'Helvetica', 'Arial']
       }
     },
   },

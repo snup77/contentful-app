@@ -8,7 +8,9 @@ export default function Header() {
         <Link href="/">
           <a>
             <Image src="/logo.svg" height={58} width={58} />
-            <span className="font-nunito">commerceworm</span>
+            <span className="font-nunito-bold text-3xl">
+              commerce<span className="text-[#672EC4]">worm</span>
+            </span>
           </a>
         </Link>
       </div>
