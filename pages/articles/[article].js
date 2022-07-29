@@ -4,6 +4,7 @@ import {
   getSlugs,
   getArticle,
 } from "../../utils/contentful-api"
+import Header from "../../components/Header"
 import RichTextPageContent from "../../components/RichTextPageContent"
 import {
   formatPublishedDateForDisplay,
@@ -14,28 +15,31 @@ import PublishedDate from "../../components/PublishedDate"
 export default function ArticleContent({ articleData }) {
   return (
     <div>
-      <div className="px-6 max-w-[670px] m-auto">
-        <h1 className="my-6 text-center">{articleData.title}</h1>
-        <PublishedDate
-          date={articleData.date}
-          datetime={articleData.datetime}
-          styles="text-base text-center pb-6"
-        />
-      </div>
-      <div className="mb-6 max-w-[1052px] m-auto">
-        <Image
-          src={articleData.heroImage.url}
-          alt={articleData.heroImage.description}
-          layout="responsive"
-          width={articleData.heroImage.width}
-          height={articleData.heroImage.height}
-        />
-      </div>
-      <div className="px-6 max-w-[670px] m-auto">
-        <RichTextPageContent
-          richTextBodyField={articleData.body}
-          renderH2Links={false}
-        />
+      <Header />
+      <div>
+        <div className="px-6 max-w-[670px] m-auto">
+          <h1 className="mb-6 pt-6 text-center">{articleData.title}</h1>
+          <PublishedDate
+            date={articleData.date}
+            datetime={articleData.datetime}
+            styles="text-base text-center pb-6"
+          />
+        </div>
+        <div className="mb-6 max-w-[1052px] m-auto">
+          <Image
+            src={articleData.heroImage.url}
+            alt={articleData.heroImage.description}
+            layout="responsive"
+            width={articleData.heroImage.width}
+            height={articleData.heroImage.height}
+          />
+        </div>
+        <div className="px-6 max-w-[670px] m-auto">
+          <RichTextPageContent
+            richTextBodyField={articleData.body}
+            renderH2Links={false}
+          />
+        </div>
       </div>
     </div>
   )

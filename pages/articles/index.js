@@ -3,12 +3,14 @@ import {
   formatPublishedDateForDisplay,
   formatPublishedDateForDateTime,
 } from "../../utils/date"
+import Header from "../../components/Header"
 import ArticleList from "../../components/ArticleList"
 import SignupForm from "../../components/SignupForm"
 
 export default function List({ postList }) {
   return (
     <div>
+      <Header />
       <main>
       <ArticleList articles={postList} />
       </main>
